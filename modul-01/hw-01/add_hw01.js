@@ -22,3 +22,51 @@
   
   Если мест нигде нет, показать alert с сообщением 'Извините, столько мест нет ни в одной группе!'
 */
+
+const vouchersSharm = 15;
+const vouchersHurgada = 25;
+const vouchersTaba = 6;
+
+const SHARM = 'Sharm';
+const HURGADA = 'Hurgada';
+const TABA = 'Taba';
+
+const neededVouchers = Number(prompt('Введите число необходимых мест'));
+
+if (Math.round(neededVouchers) - neededVouchers === 0 && neededVouchers > 0) {
+  let confirmation
+  if (neededVouchers <= vouchersSharm) {
+    confirmation = confirm (
+      `Есть свободные места в группе ${SHARM}, согласны ли вы быть в ней?`
+    );
+    if (confirmation) {
+      alert (`Приятного путешествия в группе ${SHARM}`);
+    } else {
+      alert ('Нам очень жаль, приходите еще!')
+    }
+  }
+  if (neededVouchers <= vouchersHurgada) {
+    confirmation = confirm (
+      `Есть свободные места в группе ${HURGADA}, согласны ли вы быть в ней?`
+    );
+    if (confirmation) {
+      alert (`Приятного путешествия в группе ${HURGADA}`);
+    } else {
+      alert ('Нам очень жаль, приходите еще!')
+    }
+  }
+  if (neededVouchers <= vouchersTaba) {
+    confirmation = confirm (
+      `Есть свободные места в группе ${TABA}, согласны ли вы быть в ней?`
+    );
+    if (confirmation) {
+      alert (`Приятного путешествия в группе ${TABA}`);
+    } else {
+      alert ('Нам очень жаль, приходите еще!')
+    } 
+  } else {
+    alert ('Извините, столько мест нет ни в одной группе!')
+  } 
+} else {
+  alert ('Ошибка ввода!')
+}
