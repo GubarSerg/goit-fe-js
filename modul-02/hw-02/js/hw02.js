@@ -26,16 +26,21 @@ let total = 0;
 
 do {
   userInput = prompt("Введите любое число");
-  if (userInput === '' || userInput === null) {
+  if (userInput === null) {
     break;
-  } else if (Number(userInput)) {
-    numbers.push(Number(userInput));
-  } else {
-    alert('Было введено не число, попробуйте еще раз')
+  } 
+  if (isNaN(userInput)) {
+    alert('Было введено не число, попробуйте еще раз!');
+  } else if (+userInput){
+    numbers.push(+userInput);
   }
 } while (userInput !== null);
 
-for (let item of numbers) {
-  total += item;
+if (numbers.length !== 0) {
+  for (let item of numbers) {
+    total += item;
+  }
+  alert(`Общая сумма чисел равна ${total}`);
+} else {
+  alert('Масcив пустой!');
 }
-console.log(`Общая сумма чисел равна ${total}`);
