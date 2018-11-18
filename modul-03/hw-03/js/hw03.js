@@ -50,16 +50,29 @@ const isLoginUnique = (allLogins, login) => {
   return true;
 };
 
+// const addLogin = login => {
+//   if (isLoginValid(login)) {
+//     if (isLoginUnique(logins, login)) {
+//       logins.push(login);
+//       console.log("Логин успешно добавлен!");
+//     } else {
+//       console.log("Такой логин уже используется!");
+//     }
+//   } else {
+//     console.log("Ошибка! Логин должен быть от 4 до 16 символов");
+//   }
+// };
+
 const addLogin = login => {
-  if (isLoginValid(login)) {
-    if (isLoginUnique(logins, login)) {
-      logins.push(login);
-      console.log("Логин успешно добавлен!");
-    } else {
-      console.log("Такой логин уже используется!");
-    }
-  } else {
+  if (!isLoginValid(login)) {
     console.log("Ошибка! Логин должен быть от 4 до 16 символов");
+    return;
+  }
+  if (isLoginUnique(logins, login)) {
+    logins.push(login);
+    console.log("Логин успешно добавлен!");
+  } else {
+    console.log("Такой логин уже используется!");
   }
 };
 
