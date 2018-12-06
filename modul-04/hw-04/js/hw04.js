@@ -57,8 +57,7 @@ function Cashier(name, productDatabase) {
 
   this.countTotalPrice = function(order) {
     let totalPrice = 0;
-    const orderKey = Object.keys(order);
-    for (let key of orderKey) {
+    for (let key in order) {
       if (this.productDatabase.hasOwnProperty(key)) {
         totalPrice += this.productDatabase[key] * order[key];
       }
@@ -66,13 +65,8 @@ function Cashier(name, productDatabase) {
     return totalPrice;
   };
 
-  this.countChange = function(totalPrice) {
-    let change;
-    if (this.customerMoney >= totalPrice) {
-      change = this.customerMoney - totalPrice;
-      return change;
-    }
-    return null;
+  this.countChange = function() {
+   return this.customerMoney >= totalPrice ? this.customerMoney - totalPrice : null;
   };
 
   this.onSuccess = function(change) {
