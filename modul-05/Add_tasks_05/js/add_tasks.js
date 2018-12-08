@@ -295,7 +295,7 @@ const orderB = {
 };
 
 
-const getTotalPrice = (products, order) => ??????
+const getTotalPrice = (products, order) => ??????;
 
 // Вызовы функции для проверки
 
