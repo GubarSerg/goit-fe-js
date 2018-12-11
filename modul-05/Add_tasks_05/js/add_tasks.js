@@ -299,8 +299,8 @@ const orderB = {
 
 
 const getTotalPrice = (products, order) =>{
- return Object.keys(order).reduce((acc, item) => {
-    return acc + products[item] * order[item]
+ return Object.keys(order).reduce((acc, product) => {
+    return acc + products[product] * order[product]
   }, 0)
 }
 
