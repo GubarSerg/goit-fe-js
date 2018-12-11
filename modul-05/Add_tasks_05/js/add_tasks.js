@@ -295,9 +295,16 @@ const orderB = {
 };
 
 
-const getTotalPrice = (products, order) => ??????;
 
-// Вызовы функции для проверки
+
+
+const getTotalPrice = (products, order) =>{
+ return Object.keys(order).reduce((acc, item) => {
+    return acc + products[item] * order[item]
+  }, 0)
+}
+
+/* Вызовы функции для проверки*/
 
 console.log(getTotalPrice(products, orderA)); // 140
 
