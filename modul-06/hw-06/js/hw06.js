@@ -39,6 +39,7 @@ class Hamburger {
    */
   addTopping(topping) {
     if (this._toppings.includes(topping)) {
+      return;
     }
     this._toppings.push(topping);
   }
