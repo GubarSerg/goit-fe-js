@@ -39,8 +39,6 @@ class Hamburger {
    */
   addTopping(topping) {
     if (this._toppings.includes(topping)) {
-      console.log('Такая добавка уже есть!');
-      return;
     }
     this._toppings.push(topping);
   }
@@ -52,9 +50,7 @@ class Hamburger {
   removeTopping(topping) {
     if (this._toppings.includes(topping)) {
       this._toppings = this._toppings.filter(item => item !== topping);
-      return;
     }
-    console.log('Такой начинки нет!')
   }
 
   /**
