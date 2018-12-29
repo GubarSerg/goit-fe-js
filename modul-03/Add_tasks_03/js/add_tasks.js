@@ -19,6 +19,10 @@
 //   }
 // }
 
+// const checkNumberType = function(x) {
+//   return x % 2 === 0 ? "Even" : "Odd";
+// };
+
 // console.log( checkNumberType(2) ); // 'Even'
 
 // console.log( checkNumberType(46) ); // 'Even'
@@ -79,11 +83,12 @@
 */
 
 // const checkForSpam = function (str) {
-//   let arr = str.toLowerCase().split(' ');
-//     if (arr.includes('spam') || arr.includes('sale')) {
-//       return true;
+//     const strTransform = str.toLowerCase()
+//     if(strTransform.includes("spam") || strTransform.includes("sale")) {
+//         return true;
+//     } else {
+//         return false;
 //     }
-//     return false;
 // }
 
 // // Вызовы функции для проверки
@@ -107,13 +112,14 @@
     
   Если была передана не строка, функция возвращает null.
 */
-// const getPx = function (str) {
-//  if (typeof str === 'string') {  
-//   return Number.parseFloat(str);
-//  } else {
-//    return null;
-//  }
-// }
+// const getPx = function(str) {
+
+//   if (typeof str === "string") {
+//     return Number.parseFloat(str);
+//   } else {
+//     return null;
+//   }
+// };
 
 // // Вызовы функции для проверки
 // console.log( getPx("10px") === 10 ); // должно быть:  true
@@ -135,17 +141,16 @@
 */
 
 // const findLongestWord = function(str) {
-//   let arr = str.split(" ");
-//   let longestWord;
-//   let longestLength = 0;
-//   for (let i=0; i < arr.length; i+=1){
-//     if (arr[i].length > longestLength) {
-//       longestLength = arr[i].length;
-//       longestWord = arr[i];
+//   const arr = str.split(" ");
+//   let longestWord = arr[0];
+//   for (let word of arr) {
+//     if(word.length > longestWord.length) {
+//         longestWord = word;
 //     }
 //   }
-//   return longestWord
-// }
+//   return longestWord;
+// };
+
 // // Вызовы функции для проверки
 // console.log(
 //   findLongestWord("The quick brown fox jumped over the lazy dog")
@@ -168,16 +173,15 @@
   самое большое число в массиве.
 */
 
-// const findLargestNumber = function (numbers) {
-//   let largestNumber = 0;
-//   for (let i = 0; i < numbers.length; i += 1) {
-//     if (largestNumber < numbers[i]) {
-//       largestNumber = numbers[i];
+// const findLargestNumber = function(numbers) {
+//   let lagestNumber = numbers[0];
+//   for (let num of numbers) {
+//     if (num > lagestNumber) {
+//       lagestNumber = num;
 //     }
 //   }
-
-//   return largestNumber;
-// }
+//   return lagestNumber;
+// };
 
 
 // // Вызовы функции для проверки
@@ -208,13 +212,16 @@
 
 // const uniqueNumbers = [2, 1, 4, 9];
 
-// const addUniqueNumbers = function () {
-//   for (var i = 0; i < arguments.length; i++) {
-//     if (uniqueNumbers.indexOf(arguments[i]) === -1) {
-//       uniqueNumbers.push(arguments[i]);
+
+// const addUniqueNumbers = function() {
+//   const array = [...arguments];
+//   for (let num of array) {
+//     if (!uniqueNumbers.includes(num)) {
+//       uniqueNumbers.push(num);
 //     }
 //   }
-// }
+//   return uniqueNumbers
+// };
 
 // // Вызовы функции для проверки
 // addUniqueNumbers(1, 2, 3);
@@ -243,16 +250,16 @@
   которые имеют такое же значение, что и аргументы.
 */
 
-// const removeFromArray = function(arr) {
-//   const arr2 = [...arguments].slice(1);
-//   const newArrey = [];
-//   for (var i = 0; i < arr.length; i++) {
-//         if (arr2.indexOf(arr[i]) === -1) {
-//           newArrey.push(arr[i]);
-//         }
-//       }
-//       return newArrey;
-// }; 
+// const filterFromArray = function(arr) {
+//   const values = [...arguments].slice(1);
+//   const newArr = [];
+//   for (let num of arr) {
+//     if (!values.includes(num)) {
+//       newArr.push(num);
+//     }
+//   }
+//   return newArr;
+// };
 
 // // Вызовы функции для проверки
 // console.log(
