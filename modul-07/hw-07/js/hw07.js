@@ -34,21 +34,25 @@ const posts = [{
   }
 ];
 
+function createCards(posts) {
+  let elements = [];
 
-let elements = [];
+  posts.forEach(post => {
+    const el = createPostCard(post);
+    elements.push(el)
+  })
+  return elements
+}
 
-posts.forEach(post => {
-  const el = createPostCard(post);
-  elements.push(el)
-})
-const movieCatalog = document.body.querySelector('.notes-grid')
-movieCatalog.append(...elements);
+const postCatalog = document.body.querySelector('.container')
+const catalog = createCards(posts);
+postCatalog.append(...catalog);
 
 const card = createPostCard({
-  img: "https://placeimg.com/400/150/arch",
-  title: "Post title 1",
-  text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nemo dignissimos ea temporibus voluptatem maiores maxime consequatur impedit nobis sunt similique voluptas accusamus consequuntur, qui modi nesciunt veritatis distinctio rem!",
-  link: 'link-1.com'
+  img: "",
+  title: "",
+  text: "",
+  link: ""
 })
 
 function createPostCard({
@@ -86,5 +90,3 @@ function createPostCard({
 
   return post
 }
-
-console.log(elements);
