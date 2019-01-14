@@ -48,18 +48,12 @@ const postCatalog = document.body.querySelector('.container')
 const catalog = createCards(posts);
 postCatalog.append(...catalog);
 
-const card = createPostCard({
-  img: "",
-  title: "",
-  text: "",
-  link: ""
-})
 
 function createPostCard({
-  img,
-  title,
-  text,
-  link,
+  img = "",
+  title = "",
+  text = "",
+  link = ""
 }) {
   const post = document.createElement('div');
   post.classList.add('post');
