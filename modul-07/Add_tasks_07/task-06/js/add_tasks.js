@@ -51,24 +51,14 @@ movieBase.forEach(mov => {
   elements.push(el)
 })
 const movieCatalog = document.body.querySelector('.notes-grid')
-console.log(movieCatalog);
-const movie = createMovieCard({
-  src: "http://image.tmdb.org/t/p/w500/rPdtLWNsZmAtoZl9PK7S2wE3qiS.jpg",
-  title: 'The Godfather',
-  description: 'Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.',
-  date: 'Released: 1972-03-14',
-  raiting: 'Rating: 8.6'
-});
-
 movieCatalog.append(...elements);
-console.log(movie);
 
 function createMovieCard({
-  src,
-  title,
-  description,
-  date,
-  raiting
+  src = '',
+  title = '',
+  description = '',
+  date = '',
+  raiting = ''
 }) {
   const movie = document.createElement('div');
   movie.classList.add('movie');
