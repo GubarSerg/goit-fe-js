@@ -34,20 +34,13 @@ const posts = [{
   }
 ];
 
-function createCards(posts) {
-  let elements = [];
-
-  posts.forEach(post => {
-    const el = createPostCard(post);
-    elements.push(el)
-  })
-  return elements
+function createCards(posts){
+  return posts.map(post => createPostCard(post))
 }
 
 const postCatalog = document.body.querySelector('.container')
 const catalog = createCards(posts);
 postCatalog.append(...catalog);
-
 
 function createPostCard({
   img = "",
