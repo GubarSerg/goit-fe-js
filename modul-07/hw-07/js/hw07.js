@@ -34,6 +34,13 @@ const posts = [{
   }
 ];
 
+// function createCards(posts){
+//   return posts.reduce(
+//     (acc ,post) => acc.concat(createPostCard(post)),
+//   []
+//   );
+// }
+
 function createCards(posts){
   return posts.map(post => createPostCard(post))
 }
@@ -77,3 +84,5 @@ function createPostCard({
 
   return post
 }
+
+console.log(createCards(posts));
