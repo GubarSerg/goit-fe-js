@@ -1,56 +1,58 @@
 "use strict";
 
 /*
-  Напишите скрипт для создания галлереи изображений. 
+  Есть форма с набором радиокнопок. Пользователь выбирает вариант ответа, 
+  после чего нажимает кнопку "Submit" и происходит отправка формы.
   
-  - На вкладке HTML уже есть ul.gallery.
-  - Используйте массив объектов для создания тегов img вложенных в li
-  - Оформление по вкусу, можно и не делать, достаточно чтобы каждое 
-    изображение было 300px по ширине
-  - Добавьте все элементы галлереи в ul.gallery
+  При отправке формы:
+    - не должна перезагружаться страница
+    - необходимо получить выбранную опцию и вывести в параграф с классом .result
 */
+const btn = document.querySelector('.btn');
+const labels = document.querySelectorAll('label');
+const result = document.querySelector('.result');
 
-const galleryItems = [{
-		url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-		alt: "White and Black Long Fur Cat"
-	},
-	{
-		url: "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-		alt: "Orange and White Koi Fish Near Yellow Koi Fish"
-	},
-	{
-		url: "https://images.pexels.com/photos/1216482/pexels-photo-1216482.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-		alt: "Two Brown Hen and One Red Rooster"
-	},
-	{
-		url: "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-		alt: "Group of Horses Running"
-	},
-	{
-		url: "https://images.pexels.com/photos/1316294/pexels-photo-1316294.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-		alt: "Macaw Birds"
-	},
-	{
-		url: "https://images.pexels.com/photos/41178/africa-animal-big-carnivore-41178.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-		alt: "2 Lion on Grass Field during Daytime"
+btn.addEventListener('click', showResult);
+
+	function showResult(event) {
+		event.preventDefault();
+
+		labels.forEach(function(item){
+			if(item.children[0].checked){
+				result.innerText =`Resalt : ${item.textContent.trim()}`;
+			}
+		})
 	}
-];
+	// 
+// radio.forEach(function(item){
+// 	if(item.checked){
+// 		alert(item.value);
+// 	}
+// })
+// console.log(radio);
 
 
-const list = document.body.firstElementChild
+// document.addEventListener('DOMContentLoaded', () => {
+// 	const btn = document.querySelector('.btn');
+// 	const result = document.querySelector('.result');
+// 	const options = document.querySelector('.options');
 
-const addEl = function (arr) {
-	for (let item of arr) {
-		const elem = document.createElement('li')
-		const image = document.createElement('img')
-		image.src = item.url
-		image.alt = item.alt
-		image.width = '300'
-		elem.appendChild(image)
-		list.style.listStyle = 'none'
-		list.appendChild(elem)
-	}
-}
+// 	btn.addEventListener('click', showResult);
 
-addEl(galleryItems)
-console.log(list)
+// 	function showResult(event) {
+// 		event.preventDefault();
+// 		console.log(result.innerText);
+// 	}
+
+// })
+
+// const form = document.querySelector('.question-form');
+// form.addEventListener('click', handlerClick);
+// function handlerClick ({target}) {
+// 	const nodeName = target.nodeName;
+// 	event.preventDefault();
+	
+// 	if(nodeName !== 'LABEL') return;
+// 	console.log(target);
+// }
+// console.log(options);
