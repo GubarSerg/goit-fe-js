@@ -1,28 +1,17 @@
 "use strict";
 
 /*
-  Есть список с классом .size-filter из произвольного 
-  количества чекбоксов, каждый из которых содержит 
-  размер одежды в фильтре.
-  
-  Напишите функцию collectInputData(inputs), которая
-  принимает 1 параметр inputs - массив тех инпутов
-  у которых состояние checked.
-  
-  Возвращает массив значений атрибута value.
+  Дан список изображений. Сделайте так, чтобы по клику на картинку 
+  алертом выводился ее src. Обязательно используйте делегирование событий.
 */
+document.addEventListener('DOMContentLoaded', () => {
 
-const inputs =[]
-const list = document.body.querySelectorAll('input')
-const labels = list.forEach(function(elem){
-	if(elem.hasAttribute('checked')){
-		inputs.push(elem)
-	}
-});
+  const list = document.querySelector('ul');
 
-function collectInputData(inputs) {
-	return inputs.map(item => item.value)
-}
+  list.addEventListener('click', showSrc);
 
-console.log(collectInputData(inputs))
-
+  function showSrc(event) {
+    if (event.target.nodeName !== 'IMG') return;
+    alert(event.target.src);
+  }
+})
