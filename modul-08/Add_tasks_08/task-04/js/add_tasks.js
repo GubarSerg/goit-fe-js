@@ -14,16 +14,16 @@ const result = document.querySelector('.result');
 
 btn.addEventListener('click', showResult);
 
-	function showResult(event) {
-		event.preventDefault();
+function showResult(event) {
+	event.preventDefault();
 
-		labels.forEach(function(item){
-			if(item.children[0].checked){
-				result.innerText =`Resalt : ${item.textContent.trim()}`;
-			}
-		})
-	}
-	// 
+	labels.forEach(function (item) {
+		if (item.children[0].checked) {
+			result.innerText = `Resalt : ${item.textContent.trim()}`;
+		}
+	})
+}
+// 
 // radio.forEach(function(item){
 // 	if(item.checked){
 // 		alert(item.value);
@@ -51,7 +51,7 @@ btn.addEventListener('click', showResult);
 // function handlerClick ({target}) {
 // 	const nodeName = target.nodeName;
 // 	event.preventDefault();
-	
+
 // 	if(nodeName !== 'LABEL') return;
 // 	console.log(target);
 // }
