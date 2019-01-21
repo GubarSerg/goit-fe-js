@@ -1,22 +1,32 @@
 "use strict";
 
 /*
-  Дан ul склассом .list и массив строк. 
+  Есть счетчик (спан) и кнопки +1, -1, которые должны увеличивать и уменьшать значение счетчика на 1. 
   
-  Вставьте элементы этого массива в ul так, чтобы каждый элемент стоял в своем li.
+  - Создайте класс Counter, который хранит одно поле value - текущее значение счетчика
+  - Класс принимает один параметр - onChange, функцию для обновления интерфейса при изменении счетчика
+  - Добавьте классу методы increment и decrement для увеличения и ументшение значения счетчика
+  - Привяжите вызовы методов и значение счетчика к раметке
 */
 
-const elements = ['HTML', 'CSS', 'JavaScript', 'React', 'Node'];
+document.addEventListener('DOMContentLoaded', () => {
+	const sub = document.querySelector('[data-action="sub"]');
+	const add = document.querySelector('[data-action="add"]');
+	const value = document.querySelector('.value');
 
-const list = document.body.firstElementChild
+	let num = 0;
+	sub.addEventListener('click', subCount);
 
-const addEl = function (arr) {
-	for (let item of arr) {
-		const elem = document.createElement('li')
-		elem.textContent = item
-		list.appendChild(elem)
+	function subCount() {
+		num -= 1;
+		value.innerText = num;
 	}
-}
 
-addEl(elements)
+	add.addEventListener('click', addCount);
+
+	function addCount() {
+		num += 1;
+		value.innerText = num;
+	}
+})
 
