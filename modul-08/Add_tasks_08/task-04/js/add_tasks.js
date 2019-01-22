@@ -23,36 +23,3 @@ function showResult(event) {
 		}
 	})
 }
-// 
-// radio.forEach(function(item){
-// 	if(item.checked){
-// 		alert(item.value);
-// 	}
-// })
-// console.log(radio);
-
-
-// document.addEventListener('DOMContentLoaded', () => {
-// 	const btn = document.querySelector('.btn');
-// 	const result = document.querySelector('.result');
-// 	const options = document.querySelector('.options');
-
-// 	btn.addEventListener('click', showResult);
-
-// 	function showResult(event) {
-// 		event.preventDefault();
-// 		console.log(result.innerText);
-// 	}
-
-// })
-
-// const form = document.querySelector('.question-form');
-// form.addEventListener('click', handlerClick);
-// function handlerClick ({target}) {
-// 	const nodeName = target.nodeName;
-// 	event.preventDefault();
-
-// 	if(nodeName !== 'LABEL') return;
-// 	console.log(target);
-// }
-// console.log(options);
