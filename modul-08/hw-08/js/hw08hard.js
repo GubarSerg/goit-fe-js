@@ -98,6 +98,4 @@ addGalleryBtn.addEventListener('click', addGallery);
 function addGallery(){
     newGallery.createGallery();
 }
-
-// console.log(addGalleryBtn);
 /* Далее плагин работает в автономном режиме */
