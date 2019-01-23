@@ -42,10 +42,10 @@ const posts = [{
 // }
 
 function createCards(posts){
-  return posts.map(post => createPostCard(post))
+  return posts.map(post => createPostCard(post));
 }
 
-const postCatalog = document.body.querySelector('.container')
+const postCatalog = document.body.querySelector('.container');
 
 const catalog = createCards(posts);
 console.log(catalog);
@@ -81,10 +81,10 @@ function createPostCard({
   postLink.textContent = link;
   postLink.setAttribute("href", img);
 
-  post.append(postImage, postBody)
-  postBody.append(postTitle, postDescription, postLink)
+  post.append(postImage, postBody);
+  postBody.append(postTitle, postDescription, postLink);
 
-  return post
+  return post;
 }
 
 console.log(createCards(posts));
