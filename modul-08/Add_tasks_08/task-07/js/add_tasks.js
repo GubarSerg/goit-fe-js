@@ -9,8 +9,8 @@
     если неправильное - красным. Для добавления стилей, на вкладке CSS есть стили valid и invalid
 */
 
-const inputs = document.querySelector('.input-list');
-inputs.addEventListener('blur', lostFocus, true);
+const inputList = document.querySelector('.input-list');
+inputList.addEventListener('blur', lostFocus, true);
 function lostFocus({target}) {
 	const inputDataLength = +target.dataset.length;
 	const correctLength = target.value.length;

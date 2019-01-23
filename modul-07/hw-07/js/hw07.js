@@ -46,7 +46,9 @@ function createCards(posts){
 }
 
 const postCatalog = document.body.querySelector('.container')
+
 const catalog = createCards(posts);
+console.log(catalog);
 postCatalog.append(...catalog);
 
 function createPostCard({
