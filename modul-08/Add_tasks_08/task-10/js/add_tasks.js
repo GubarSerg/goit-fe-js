@@ -17,23 +17,21 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 	const list = document.querySelector('.js-menu');
-	const links = document.querySelectorAll('.menu-link')
+	const links = document.querySelectorAll('.menu-link');
 
 	list.addEventListener('click', addActive);
 
-	function addActive({
-		target
-	}) {
+	function addActive({target}) {
 		event.preventDefault();
 
 		if (target.nodeName !== 'A') return;
 
 		links.forEach(link => {
 			if (link !== target) {
-				link.classList.remove('active')
+				link.classList.remove('active');
 			} else {
-				link.classList.add('active')
+				link.classList.add('active');
 			}
-		})
+		});
 	}
-})
+});
