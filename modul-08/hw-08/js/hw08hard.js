@@ -30,6 +30,7 @@ class Gallery {
 
     createGallery() {
         this.gallery.addEventListener('click', this.fullView.bind(this));
+        this.gallery.addEventListener("click", this.isActive.bind(this));
         this.parentNode.append(this.fullviewImg, this.gallery);
     }
 
@@ -53,6 +54,7 @@ class Gallery {
         const list = document.createElement('ul');
         list.classList.add('preview');
         const previewItems = this.createPreview(this.items);
+        previewItems[0].firstChild.classList.add('isActive');
         list.append(...previewItems);
         return list;
     }
@@ -63,39 +65,53 @@ class Gallery {
     createFullviewImg({
         fullview = "",
         alt = "",
-      }) {
+    }) {
         const fullImg = document.createElement('img');
         fullImg.setAttribute('src', fullview);
         fullImg.setAttribute('alt', alt);
         return fullImg;
-      }
+    }
 
-      createFullview() {
+    createFullview() {
         const fullview = document.createElement('div');
         fullview.classList.add('fullview');
         fullview.appendChild(this.createFullviewImg(this.items[this.defaultActiveItem]));
         return fullview;
-      }
+    }
 
-      fullView({
+    fullView({
         target
-      }) {
+    }) {
         if (target.nodeName !== 'IMG') return;
         this.fullviewImg.firstElementChild.src = target.dataset.fullview;
         this.fullviewImg.firstElementChild.alt = target.alt;
-      }
+    }
+
+    isActive({
+        target
+    }) {
+        if (target.nodeName !== "IMG") return;
+        this.gallery.childNodes.forEach(li => {
+            if (li.firstChild !== target) {
+                li.firstChild.classList.remove("isActive");
+            } else {
+                li.firstChild.classList.add("isActive");
+            }
+        });
+    }
 }
 
 const newGallery = new Gallery({
     items: galleryItems,
     parentNode: document.querySelector('.image-gallery'),
-    defaultActiveItem: 2
+    defaultActiveItem: 0
 });
 
 
 
 addGalleryBtn.addEventListener('click', addGallery);
-function addGallery(){
+
+function addGallery() {
     newGallery.createGallery();
 }
 /* Далее плагин работает в автономном режиме */

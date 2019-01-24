@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 /*
   Создайте компонент галлереи изображений следующего вида.
   
@@ -54,40 +54,40 @@
 */
 
 const galleryItems = [{
-    preview: 'img/preview-1.jpg',
-    fullview: 'img/fullview-1.jpg',
+    preview: "img/preview-1.jpg",
+    fullview: "img/fullview-1.jpg",
     alt: "alt text 1"
   },
   {
-    preview: 'img/preview-2.jpg',
-    fullview: 'img/fullview-2.jpg',
+    preview: "img/preview-2.jpg",
+    fullview: "img/fullview-2.jpg",
     alt: "alt text 2"
   },
   {
-    preview: 'img/preview-3.jpg',
-    fullview: 'img/fullview-3.jpg',
+    preview: "img/preview-3.jpg",
+    fullview: "img/fullview-3.jpg",
     alt: "alt text 3"
   },
   {
-    preview: 'img/preview-4.jpg',
-    fullview: 'img/fullview-4.jpg',
+    preview: "img/preview-4.jpg",
+    fullview: "img/fullview-4.jpg",
     alt: "alt text 4"
   },
   {
-    preview: 'img/preview-5.jpg',
-    fullview: 'img/fullview-5.jpg',
+    preview: "img/preview-5.jpg",
+    fullview: "img/fullview-5.jpg",
     alt: "alt text 5"
   },
   {
-    preview: 'img/preview-6.jpg',
-    fullview: 'img/fullview-6.jpg',
+    preview: "img/preview-6.jpg",
+    fullview: "img/fullview-6.jpg",
     alt: "alt text 6"
-  },
+  }
 ];
 
 // ====================================================================================================
 
-const imageGallery = document.body.querySelector('.image-gallery');
+const imageGallery = document.body.querySelector(".image-gallery");
 const gallery = createPreviewGallery();
 const fullviewImg = createFullview();
 const addGalleryBtn = createButton();
@@ -99,11 +99,11 @@ imageGallery.append(fullviewImg, gallery, addGalleryBtn);
 function createPreviewImg({
   preview = "",
   fullview = "",
-  alt = "",
+  alt = ""
 }) {
-  const listItem = document.createElement('li');
+  const listItem = document.createElement("li");
 
-  const image = document.createElement('img');
+  const image = document.createElement("img");
   image.setAttribute("src", preview);
   image.setAttribute("data-fullview", fullview);
   image.setAttribute("alt", alt);
@@ -115,9 +115,10 @@ function createPreviewImg({
 // ==================CreatePreviewGallery======================
 
 function createPreviewGallery() {
-  const list = document.createElement('ul');
-  list.classList.add('preview');
+  const list = document.createElement("ul");
+  list.classList.add("preview");
   const previewItems = createPreview(galleryItems);
+  previewItems[0].firstChild.classList.add('isActive');
   list.append(...previewItems);
   return list;
 }
@@ -130,19 +131,19 @@ function createPreview(galleryItems) {
 
 function createFullviewImg({
   fullview = "",
-  alt = "",
+  alt = ""
 }) {
-  const fullImg = document.createElement('img');
-  fullImg.setAttribute('src', fullview);
-  fullImg.setAttribute('alt', alt);
+  const fullImg = document.createElement("img");
+  fullImg.setAttribute("src", fullview);
+  fullImg.setAttribute("alt", alt);
   return fullImg;
 }
 
 // ==================CreateFullGallery======================
 
 function createFullview() {
-  const fullview = document.createElement('div');
-  fullview.classList.add('fullview');
+  const fullview = document.createElement("div");
+  fullview.classList.add("fullview");
   fullview.appendChild(createFullviewImg(galleryItems[0]));
   return fullview;
 }
@@ -150,23 +151,37 @@ function createFullview() {
 // ==================CreateButton======================
 
 function createButton() {
-  const btn = document.createElement('button');
-  btn.classList.add('myButton');
-  btn.innerText ='Add Gallery';
+  const btn = document.createElement("button");
+  btn.classList.add("myButton");
+  btn.innerText = "Add Gallery";
   return btn;
 }
 
 // ======================addEventListener=============================
 
-gallery.addEventListener('click', fullView);
+gallery.addEventListener("click", fullView);
 
 function fullView({
   target
 }) {
-  if (target.nodeName !== 'IMG') return;
+  if (target.nodeName !== "IMG") return;
   fullviewImg.firstElementChild.src = target.dataset.fullview;
   fullviewImg.firstElementChild.alt = target.alt;
 }
+
+gallery.addEventListener("click", isActive);
+
+function isActive({
+  target
+}) {
+  if (target.nodeName !== "IMG") return;
+  gallery.childNodes.forEach(li => {
+    if (li.firstChild !== target) {
+      li.firstChild.classList.remove("isActive");
+    } else {
+      li.firstChild.classList.add("isActive");
+    }
+  });
+}
+
 //=======================================================================
-
-

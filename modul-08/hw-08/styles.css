@@ -44,6 +44,10 @@ li {
   cursor: pointer;
 }
 
+.isActive {
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
 /* ================================================ */
 
 .myButton {
