@@ -54,7 +54,6 @@ class Gallery {
         const list = document.createElement('ul');
         list.classList.add('preview');
         const previewItems = this.createPreview(this.items);
-        previewItems[0].firstChild.classList.add('isActive');
         list.append(...previewItems);
         return list;
     }
@@ -69,6 +68,11 @@ class Gallery {
         const fullImg = document.createElement('img');
         fullImg.setAttribute('src', fullview);
         fullImg.setAttribute('alt', alt);
+        this.gallery.childNodes.forEach(li => {
+            if (li.firstElementChild.alt === fullImg.alt) {
+              li.firstElementChild.classList.add('isActive');
+            }
+          })
         return fullImg;
     }
 
@@ -104,7 +108,7 @@ class Gallery {
 const newGallery = new Gallery({
     items: galleryItems,
     parentNode: document.querySelector('.image-gallery'),
-    defaultActiveItem: 0
+    defaultActiveItem: 2
 });
 
 

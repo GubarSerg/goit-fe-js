@@ -118,7 +118,6 @@ function createPreviewGallery() {
   const list = document.createElement("ul");
   list.classList.add("preview");
   const previewItems = createPreview(galleryItems);
-  previewItems[0].firstChild.classList.add('isActive');
   list.append(...previewItems);
   return list;
 }
@@ -136,6 +135,11 @@ function createFullviewImg({
   const fullImg = document.createElement("img");
   fullImg.setAttribute("src", fullview);
   fullImg.setAttribute("alt", alt);
+  gallery.childNodes.forEach(li => {
+    if (li.firstElementChild.alt === fullImg.alt) {
+      li.firstElementChild.classList.add('isActive');
+    }
+  })
   return fullImg;
 }
 
@@ -176,10 +180,10 @@ function isActive({
 }) {
   if (target.nodeName !== "IMG") return;
   gallery.childNodes.forEach(li => {
-    if (li.firstChild !== target) {
-      li.firstChild.classList.remove("isActive");
+    if (li.firstElementChild !== target) {
+      li.firstElementChild.classList.remove("isActive");
     } else {
-      li.firstChild.classList.add("isActive");
+      li.firstElementChild.classList.add("isActive");
     }
   });
 }
