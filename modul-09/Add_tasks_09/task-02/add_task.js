@@ -14,7 +14,7 @@ function getFormattedTime(time) {
   let date = new Date(time);
   let min = addZero(date.getMinutes());
   let sec = addZero(date.getSeconds());
-  let millisec = String(date.getMilliseconds()).slice(0,-2);
+  let millisec = Number.parseInt(date.getMilliseconds() / 100);;
   function addZero(item){
     if(String(item).length < 2){
       item = '0'+ item;
