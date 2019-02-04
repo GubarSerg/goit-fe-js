@@ -83,6 +83,11 @@ li {
 	animation-duration: 1000ms;
 	animation-fill-mode: both;
 	animation-name: transform-bounch-in-down;
+	color: #4e4e4e;
+}
+
+li:first-child {
+	color: #2196F3;
 }
 
 @keyframes transform-bounch-in-down {
@@ -106,4 +111,5 @@ li {
 	100% {
 		transform: translate(0px, 0px) rotate(0deg);
 	}
-}
+};
+

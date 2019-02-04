@@ -53,7 +53,7 @@ const startBtn = document.querySelector('.js-start');
 const lapBtn = document.querySelector('.js-take-lap');
 const resetBtn = document.querySelector('.js-reset');
 const lapFace = document.querySelector('.js-laps');
-
+let lapNumber = 0;
 
 
 
@@ -91,7 +91,7 @@ const stopwatch = {
       this.isPaused = false;
       startBtn.textContent = 'Continue';
     }
-    startStatus()
+    startStatus();
   },
 
   lap() {
@@ -104,6 +104,7 @@ const stopwatch = {
     clearInterval(this.timerId);
     this.pauseTime = 0;
     resetStatus();
+    lapNumber = 0;
   }
 };
 
@@ -117,10 +118,7 @@ function updateClockface(time) {
 }
 
 function makeLap() {
-  const lap = document.createElement('li');
-  lap.textContent = clockFace.textContent;
-  lapFace.appendChild(lap)
-  console.log();
+  addLaps();
 }
 
 function getFormattedTime(time) {
@@ -152,16 +150,24 @@ function resetStatus() {
   lapBtn.classList.remove("blink");
 }
 
-function startStatus(){
+function startStatus() {
   resetBtn.disabled = false;
-  resetBtn.classList.add("reset");
   lapBtn.disabled = false;
-  resetBtn.classList.add("enabled")
+  resetBtn.classList.add("reset");
   if (startBtn.classList.contains("active")) {
-    lapBtn.disabled = false;
     startBtn.classList.remove("active");
-    startBtn.classList.toggle("paused")
+    startBtn.classList.toggle("paused");
+  }
+  if (startBtn.classList.contains("paused")) {
+    lapBtn.setAttribute("disabled", "true");
   }
   startBtn.classList.add("active");
-  lapBtn.classList.add("blink")
+  lapBtn.classList.toggle("blink");
+}
+
+function addLaps(){
+  lapNumber ++;
+  const lap = document.createElement('li');
+  lap.textContent =`Lap ${lapNumber} ` + clockFace.textContent;
+  lapFace.insertAdjacentElement('afterbegin', lap);
 }
