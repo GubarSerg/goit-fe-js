@@ -168,6 +168,6 @@ function startStatus() {
 function addLaps(){
   lapNumber ++;
   const lap = document.createElement('li');
-  lap.textContent =`Lap ${lapNumber} ` + clockFace.textContent;
+  lap.textContent =`Lap ${lapNumber} - ${clockFace.textContent}`;
   lapFace.insertAdjacentElement('afterbegin', lap);
 }
