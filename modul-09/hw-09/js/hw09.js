@@ -158,11 +158,14 @@ function startStatus() {
     startBtn.classList.remove("active");
     startBtn.classList.toggle("paused");
   }
-  if (startBtn.classList.contains("paused")) {
-    lapBtn.setAttribute("disabled", "true");
-  }
+  // DISABLE LAP BUTTON ON PAUSE
+  //----------------------------------------------
+  // if (startBtn.classList.contains("paused")) {
+  //   lapBtn.setAttribute("disabled", "true");
+  // }
+  //----------------------------------------------
   startBtn.classList.add("active");
-  lapBtn.classList.toggle("blink");
+  lapBtn.classList.add("blink"); //toggle for stop blink on pause
 }
 
 function addLaps(){
