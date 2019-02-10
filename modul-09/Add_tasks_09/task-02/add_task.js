@@ -15,14 +15,14 @@ function getFormattedTime(time) {
   let min = addZero(date.getMinutes());
   let sec = addZero(date.getSeconds());
   let millisec = Number.parseInt(date.getMilliseconds() / 100);;
-  function addZero(item){
-    if(String(item).length < 2){
-      item = '0'+ item;
-    } return item;
-  }
   return `${min}:${sec}.${millisec}`;
 }
 
+function addZero(item){
+  if(String(item).length < 2){
+    item = '0'+ item;
+  } return item;
+}
 console.log(
   getFormattedTime(1523621052858)
 ); // 04:12.8
