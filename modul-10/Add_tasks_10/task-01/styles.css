@@ -1,0 +1,70 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background: #fff;
+}
+
+.container {
+  padding-top: 20px;
+  width: 400px;
+  min-width: 480px;
+  margin: auto;
+  
+}
+
+.mdc-btn {
+  min-width: 88px;
+  height: 36px;
+  padding: 0 16px;
+  border: 0;
+  outline: 0;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  background-color: #00796b;
+  cursor: pointer;
+  box-shadow: -1px 1px 21px -4px rgba(0,0,0,0.48);
+}
+
+.mdc-btn:hover {
+  background-color: #004c40;
+}
+
+.mdc-btn:active {
+  box-shadow: 0 6px 4px 0 rgba(#414141, 0.3);
+}
+
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: -1px 1px 21px -4px rgba(0,0,0,0.48);
+  margin-bottom: 70px;
+}
+
+.search-form input {
+  margin-right: 12px;
+  padding: 4px;
+  outline: 0;
+  border: 0;
+  color: #263238;
+  font-size: 18px;
+  background-color: transparent;
+  border-bottom: 2px solid #00796b;
+}
+
+.search-form input::placeholder {
+  color: #616161;
+}
+
+img {
+  padding-left: 10px;
+  width: 100px;
+}
+.country {
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #00796b;
+}
