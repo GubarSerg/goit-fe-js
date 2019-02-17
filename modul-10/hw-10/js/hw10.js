@@ -114,6 +114,7 @@ function addUser(name, age) {
   fetchAddUser(name, age)
     .then(user => {
       const id = user._id;
+      delete user._id;
       return {
         id,
         ...user
@@ -233,23 +234,23 @@ function createElement({
   age
 }) {
   const userId = document.createElement('li');
+  const userName = document.createElement('li');
+  const userAge = document.createElement('li');
+
   userId.classList.add("user-id");
   userId.textContent = id;
   userIdList.appendChild(userId);
 
-  const userName = document.createElement('li');
   userName.classList.add("user-name");
   userName.textContent = name;
   userNameList.appendChild(userName);
 
-  const userAge = document.createElement('li');
   userAge.classList.add("user-age");
   userAge.textContent = age;
   userAgeList.appendChild(userAge);
 }
-//-------------------------Create block--------------------
 
-
+//-------------------------Reset--------------------
 function resultReset() {
   if (userIdList.childNodes.length !== 0 && userNameList.childNodes.length !== 0 && userAgeList.childNodes.length !== 0) {
     while (userIdList.firstElementChild && userNameList.firstElementChild && userAgeList.firstElementChild) {
