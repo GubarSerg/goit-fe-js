@@ -39,12 +39,7 @@ function filterOnClick(evt) {
   evt.preventDefault();
   clearResult();
   const cards = createFilteredCards(selectedCheckboxes ());
-
-  if (cards.length !== 0) {
-    renderLaptops(cards);
-  } else {
-    alert('Not found');
-  }
+  cards.length !== 0 ? renderLaptops(cards) : alert('Not found');
 }
 
 function ClearOnClick() {
