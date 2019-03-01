@@ -38,13 +38,14 @@ clearBtn.addEventListener("click", ClearOnClick);
 
 function filterOnClick(evt) {
   evt.preventDefault();
-  clearResult();
+  resetFilter();
   const cards = createFilteredCards(selectedCheckboxes ());
   cards.length !== 0 ? renderLaptops(cards) : alert('Not found');
 }
 
 function ClearOnClick() {
-  clearResult();
+  resetFilter();
+  renderLaptops(laptops)
 }
 
 function selectedCheckboxes () {
@@ -113,7 +114,7 @@ function createResult(template, filter) {
   return filter.reduce((acc, item) => acc + template(item), "");
 }
 
-function clearResult() {
+function resetFilter() {
   if (result.childNodes.length !== 0)
     while (result.firstChild) {
       result.removeChild(result.firstChild);
