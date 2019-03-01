@@ -32,6 +32,7 @@ const source = document.querySelector("#laptop").innerHTML.trim();
 const clearBtn = document.querySelector('[type="reset"]');
 
 
+
 form.addEventListener("submit", filterOnClick);
 clearBtn.addEventListener("click", ClearOnClick);
 
@@ -102,6 +103,7 @@ function createFilteredCards(obj) {
 
 
 function renderLaptops(filter) {
+  console.log(filter);
   const template = Handlebars.compile(source);
   const markup = createResult(template, filter);
   result.insertAdjacentHTML("afterbegin", markup);
@@ -117,6 +119,11 @@ function clearResult() {
       result.removeChild(result.firstChild);
     }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  renderLaptops(laptops);
+});
+
 //==================================================================//
 
 const laptops = [

@@ -37,7 +37,7 @@ h2 {
 
 button {
 	width: 200px;
-	height: 30px;
+	height: 40px;
 	text-transform: uppercase;
 	border: 0;
 	background-color: #14c0df;
@@ -51,10 +51,6 @@ ul {
 	list-style: none;
 }
 
-/* button {
-	width: 100px;
-	height: 30px;
-} */
 
 section {
 	width: 150px;
