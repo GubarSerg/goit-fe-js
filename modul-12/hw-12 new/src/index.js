@@ -54,7 +54,7 @@ function updateView() {
 }
 
 function createMarkup() {
-    return (getFromStorage()).reduce((acc, {
+    return fetchedLinks.reduce((acc, {
         url,
         title,
         description,
