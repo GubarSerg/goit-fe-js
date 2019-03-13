@@ -8,7 +8,6 @@ import checkURL from './services/urlValidator';
 
 
 
-
 const result = document.querySelector('ul');
 const input = document.querySelector('input');
 const form = document.querySelector('form');
@@ -74,7 +73,7 @@ function getFromStorage() {
 }
 
 function checkLink(data) {
-    return fetchedLinks.some(item => item.url === data.url);
+    return getFromStorage().some(item => item.url === data.url);
 }
 
 function deleteCard(evt) {
