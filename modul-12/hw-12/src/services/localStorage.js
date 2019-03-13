@@ -7,5 +7,5 @@ export const set = value => {
   export const get = () => {
     const data = localStorage.getItem('site-links');
   
-    return data ? JSON.parse(data) : null;
+    return data ? JSON.parse(data) : [];
   };
