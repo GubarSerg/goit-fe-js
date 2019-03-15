@@ -41,7 +41,8 @@ function link(url) {
         refreshStorage();
         updateView();
         form.reset();
-    });
+        
+    }).catch(() => alert("Такого сайта нет!"));
 }
 
 function refreshStorage() {
